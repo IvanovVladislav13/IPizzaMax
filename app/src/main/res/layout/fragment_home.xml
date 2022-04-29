@@ -13,6 +13,7 @@
         android:text="Home" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/detailsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +22,7 @@
         android:text="Details"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

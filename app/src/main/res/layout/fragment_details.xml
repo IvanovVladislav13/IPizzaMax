@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="525dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/bottom_sheet_background"
     tools:context=".presentation.details.DetailsFragment">
 
@@ -24,10 +24,10 @@
             android:background="@drawable/bottom_sheet_swipe_background" />
     </FrameLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textDetails"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Details"
         app:layout_constraintStart_toStartOf="parent"

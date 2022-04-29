@@ -5,15 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ipizzamax.R
+import com.example.ipizzamax.databinding.FragmentPreviewBinding
+import com.example.ipizzamax.presentation.details.DetailsFragment
+import com.example.ipizzamax.utils.navigateTo
 
-class PreviewFragment : Fragment() {
+class PreviewFragment : Fragment(R.layout.fragment_preview) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_preview, container, false)
+    private val binding by viewBinding(FragmentPreviewBinding::bind)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.backButton.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
     }
 }

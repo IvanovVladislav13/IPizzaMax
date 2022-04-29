@@ -1,19 +1,39 @@
 package com.example.ipizzamax.presentation.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ipizzamax.R
+import com.example.ipizzamax.databinding.FragmentHomeBinding
+import com.example.ipizzamax.presentation.cart.CartFragment
+import com.example.ipizzamax.presentation.details.DetailsFragment
+import com.example.ipizzamax.utils.navigateTo
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private val binding by viewBinding(FragmentHomeBinding::bind)
+    private var detailsFragment: DetailsFragment? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cartButton.setOnClickListener {
+            parentFragmentManager.navigateTo(CartFragment(), true).commit()
+        }
+
+        binding.detailsButton.setOnClickListener {
+            detailsFragment = DetailsFragment()
+            detailsFragment?.show(parentFragmentManager, TAG)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        detailsFragment?.show(parentFragmentManager, TAG)
+    }
+
+    companion object {
+        private val TAG = DetailsFragment::class.java.simpleName
     }
 }
