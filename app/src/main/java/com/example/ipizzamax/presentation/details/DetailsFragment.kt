@@ -30,9 +30,10 @@ class DetailsFragment : BottomSheetDialogFragment() {
             dismiss()
         }
 
-        binding.textDetails.setOnClickListener {
-            dismiss()
-            parentFragmentManager.navigateTo(PreviewFragment(), true).commit()
-        }
+
+    }
+
+    companion object {
+        val TAG: String = DetailsFragment::class.java.simpleName
     }
 }

@@ -10,5 +10,6 @@
 
 
     <color name="colorPrimary">#FFD089</color>
+    <color name="colorOnPrimary">#FAFAFA</color>
     <color name="textColor">#424242</color>
 </resources>

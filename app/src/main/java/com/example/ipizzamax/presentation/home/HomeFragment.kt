@@ -18,22 +18,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.cartButton.setOnClickListener {
-            parentFragmentManager.navigateTo(CartFragment(), true).commit()
-        }
 
-        binding.detailsButton.setOnClickListener {
-            detailsFragment = DetailsFragment()
-            detailsFragment?.show(parentFragmentManager, TAG)
-        }
     }
 
     override fun onResume() {
         super.onResume()
-        detailsFragment?.show(parentFragmentManager, TAG)
-    }
-
-    companion object {
-        private val TAG = DetailsFragment::class.java.simpleName
+        detailsFragment?.show(parentFragmentManager, DetailsFragment.TAG)
     }
 }
